@@ -1,1 +1,4 @@
+.mypy_cache
+.coverage
+htmlcov
 *.pyc

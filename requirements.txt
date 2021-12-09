@@ -7,3 +7,4 @@ python-jose
 python-multipart
 python-decouple
 psycopg2
+alembic

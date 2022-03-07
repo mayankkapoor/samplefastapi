@@ -49,7 +49,7 @@ jobs:
       - name: Test with pytest
         run: |
           alembic upgrade head
-          pytest
+          pytest app/tests/crud/
         env:
           PYTHONPATH: "${PYTHONPATH}:."
           # The hostname used to communicate with the PostgreSQL service container

@@ -28,7 +28,7 @@ jobs:
         ports:
           # Maps tcp port 5432 on service container to the host
           - 5432:5432
-          
+
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
@@ -48,6 +48,7 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with pytest
         run: |
+          alembic upgrade head
           pytest
         env:
           # The hostname used to communicate with the PostgreSQL service container

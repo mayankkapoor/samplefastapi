@@ -51,6 +51,7 @@ jobs:
           alembic upgrade head
           pytest
         env:
+          PYTHONPATH: "${PYTHONPATH}:."
           # The hostname used to communicate with the PostgreSQL service container
           POSTGRES_SERVER: localhost
           # The default PostgreSQL port

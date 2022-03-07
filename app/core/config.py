@@ -36,11 +36,10 @@ class Settings(BaseSettings):
         return v
 
     POSTGRES_SERVER: str = config("POSTGRES_SERVER")
-    POSTGRES_PORT: str = config("POSTGRES_PORT")
     POSTGRES_USER: str = config("POSTGRES_USER")
     POSTGRES_PASSWORD: str = config("POSTGRES_PASSWORD")
     POSTGRES_DB: str = config("POSTGRES_DB")
-    SQLALCHEMY_DATABASE_URI: Optional[PostgresDsn] = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_SERVER}:{POSTGRES_PORT}/{POSTGRES_DB}"
+    SQLALCHEMY_DATABASE_URI: Optional[PostgresDsn] = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_SERVER}/{POSTGRES_DB}"
 
     @validator("SQLALCHEMY_DATABASE_URI", pre=True)
     def assemble_db_connection(cls, v: Optional[str], values: Dict[str, Any]) -> Any:

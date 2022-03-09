@@ -20,6 +20,6 @@ app.add_middleware(
 
 @app.get("/")
 def hello():
-    return {"health": "good"}
+    return {"health": "Hey Rohan and Naga"}
 
 app.include_router(api_router, prefix=settings.API_V1_STR)
